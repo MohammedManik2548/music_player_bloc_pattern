@@ -8,6 +8,8 @@ import '../../../bloc/player_bloc/player_bloc.dart';
 import '../../../res/app_colors.dart';
 import '../../../res/app_icons.dart';
 import '../../../res/app_svg.dart';
+import '../../../utils/utils.dart';
+import '../../player/player.dart';
 
 class HomeBottomPlayer extends StatelessWidget {
   const HomeBottomPlayer({super.key});
@@ -15,7 +17,7 @@ class HomeBottomPlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PlayerBloc, PlayerState>(
-      // buildWhen: (previous, current) => previous.progress != current.progress,
+      buildWhen: (previous, current) => previous.progress != current.progress,
       builder: (context, state) {
         // print(state.file==null? '' : state.file!.name.toString());
         return AnimatedPositioned(

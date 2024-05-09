@@ -22,11 +22,11 @@ class CustomAppBar extends StatelessWidget {
 
          Positioned(right: 1, child:  postIcon?? Row(
            children: [
-             SvgPicture.asset(
-               AppSvg.search,
-               color: Colors.black87,
-               width: 20,
-             ),
+             // SvgPicture.asset(
+             //   AppSvg.search,
+             //   color: Colors.black87,
+             //   width: 20,
+             // ),
              const SizedBox(
                width: 10,
              ),

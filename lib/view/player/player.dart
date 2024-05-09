@@ -46,7 +46,7 @@ class Player extends StatelessWidget {
                     ),
                   ),
                   SongTitle(file: file,),
-                  Spacer(),
+                  const Spacer(),
                   SongControllers(file: file,),
                   const SizedBox(height: 50,),
                   const SongBottomContainer(),

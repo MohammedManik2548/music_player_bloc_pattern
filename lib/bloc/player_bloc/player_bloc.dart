@@ -80,8 +80,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
 
   Future<void> _onTapFavouriteEvent(
       OnTapFavouriteEvent event, Emitter<PlayerState> emit) async {
-    final alreadyExist =
-        await dbHelper.isFavoriteExists(event.file.name.toString());
+    final alreadyExist = await dbHelper.isFavoriteExists(event.file.name.toString());
     if (alreadyExist) {
       showDialog(
         context: event.context,
@@ -141,8 +140,7 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     if (player.position.inSeconds < player.duration!.inSeconds - 10) {
       player.seek(Duration(seconds: player.position.inSeconds + 10));
       emit(state.copyWith(
-          progress: player.position.inMilliseconds /
-              player.duration!.inMilliseconds));
+          progress: player.position.inMilliseconds / player.duration!.inMilliseconds));
     }
   }
 
@@ -154,7 +152,6 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
       player.seek(const Duration(seconds: 0));
     }
     emit(state.copyWith(
-        progress:
-            player.position.inMilliseconds / player.duration!.inMilliseconds));
+        progress: player.position.inMilliseconds / player.duration!.inMilliseconds));
   }
 }

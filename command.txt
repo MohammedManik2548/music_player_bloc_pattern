@@ -1,0 +1,9 @@
+**Build Bundle
+flutter build appbundle
+
+**Build Apk
+flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi
+
+**Build JKS file
+keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA \
+        -keysize 2048 -validity 10000 -alias upload
