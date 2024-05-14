@@ -8,6 +8,8 @@ import 'package:music/view/onBoarding/components/first_page.dart';
 import 'package:music/view/onBoarding/components/second_page.dart';
 import 'package:music/view/onBoarding/components/third_page.dart';
 
+import '../../res/app_colors.dart';
+
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});
 
@@ -35,7 +37,7 @@ class OnBoarding extends StatelessWidget {
                 height: 50,
                 width: 120,
                 decoration: BoxDecoration(
-                  color: Colors.black12,
+                  color: blueShade,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Row(
@@ -85,6 +87,7 @@ class OnBoarding extends StatelessWidget {
                     .add(OnSkipTapEvent(context: context)),
                 child: Text(
                   'Skip',
+                  style: TextStyle(fontSize: 16,color: blueShade),
                 ),
               ))
         ],

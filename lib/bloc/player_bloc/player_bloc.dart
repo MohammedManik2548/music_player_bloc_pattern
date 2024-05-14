@@ -67,9 +67,9 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   Future<void> _progressUpdate(
       ProgressUpdateEvent event, Emitter<PlayerState> emit) async {
     if (event.progress == 1.0) {
-      // player.pause();
-      // player.seek(const Duration(seconds: 0));
-      // emit(state.copyWith(progress: 0.0,isPlaying: false));
+      player.pause();
+      player.seek(const Duration(seconds: 0));
+      emit(state.copyWith(progress: 0.0,isPlaying: false));
       add(OnPlayEvent(file: state.file!));
     } else {
       emit(state.copyWith(

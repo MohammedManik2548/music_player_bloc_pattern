@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:music/bloc/home_bloc/home_event.dart';
 import 'package:music/bloc/home_bloc/home_state.dart';
 import 'package:music/db_helper/db_helper.dart';
@@ -36,8 +37,7 @@ class HomeBloc extends Bloc<HomeEvents, HomeState> {
     ));
   }
 
-  Future<void> _onFavSongFileEvent(
-      GetFavSongEvent event, Emitter<HomeState> emit) async {
+  Future<void> _onFavSongFileEvent(GetFavSongEvent event, Emitter<HomeState> emit) async {
     add(ChangeLoadingStatusFav(
       songStatus: Status.loading,
     ));
@@ -74,7 +74,7 @@ class HomeBloc extends Bloc<HomeEvents, HomeState> {
       favouriteSongs.add(event.file);
     }
     add(GetFavSongEvent());
-    // emit(state.copyWith(favouriteSongs: List.generate(favouriteSongs.length, (index) => favouriteSongs[index])));
+    emit(state.copyWith(favouriteSongs: List.generate(favouriteSongs.length, (index) => favouriteSongs[index])));
   }
 
   Future<void> _onAddToAlbumEvent(
@@ -94,7 +94,7 @@ class HomeBloc extends Bloc<HomeEvents, HomeState> {
         songList.add(event.file);
       }
       add(GetSongEvent());
-      // emit(state.copyWith(songList: List.from(songList)));
+      emit(state.copyWith(songList: List.from(songList)));
     } catch (e) {
       debugPrint(e.toString());
     }

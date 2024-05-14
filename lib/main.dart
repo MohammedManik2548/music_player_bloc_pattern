@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:music/bloc/album_bloc/album_bloc.dart';
 import 'package:music/bloc/boarding_bloc/boarding_bloc.dart';
@@ -8,8 +9,11 @@ import 'package:music/bloc/player_bloc/player_bloc.dart';
 import 'package:music/db_helper/db_helper.dart';
 import 'package:music/res/app_colors.dart';
 import 'package:music/view/splash/splash.dart';
+
+import 'bloc/ad_bloc/ad_bloc.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {

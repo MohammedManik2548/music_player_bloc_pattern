@@ -50,6 +50,8 @@ dependencies:
   layout_pro: ^0.0.4
   shimmer_effect: ^1.0.4
   flutter_launcher_icons: ^0.13.1
+  google_mobile_ads: ^2.3.0
+
 
 dev_dependencies:
   flutter_test:

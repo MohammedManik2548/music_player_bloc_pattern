@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:music/utils/utils.dart';
 import 'package:music/view/home/home_view.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../view/onBoarding/onBoarding.dart';
 class SplashServices{
   static isFirstTime({required BuildContext context})async{
     bool permission=await Utils.requestPermission();
@@ -16,15 +19,15 @@ class SplashServices{
     });
 
 
-    // SharedPreferences pref=await SharedPreferences.getInstance();
-    // final check=pref.getBool('OPENED') ?? false;
-    // Timer(const Duration(seconds: 2), () {
-    //   if(check){
-    //     Utils.go(context: context, screen: const HomeView(),replace: true);
-    //   }else{
-    //     Utils.go(context: context, screen: const OnBoarding(),replace: true);
-    //   }
-    // });
+    SharedPreferences pref=await SharedPreferences.getInstance();
+    final check=pref.getBool('OPENED') ?? false;
+    Timer(const Duration(seconds: 2), () {
+      if(check){
+        Utils.go(context: context, screen: const HomeView(),replace: true);
+      }else{
+        Utils.go(context: context, screen: const OnBoarding(),replace: true);
+      }
+    });
   }
 
 }

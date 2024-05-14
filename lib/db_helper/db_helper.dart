@@ -1,9 +1,11 @@
 import 'dart:io';
-
+import 'package:flutter/material.dart';
 import 'package:music/model/audio_file_model.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
+
+import '../utils/utils.dart';
 class DbHelper {
   Database? _db;
   Future<Database?> get db
@@ -32,7 +34,7 @@ class DbHelper {
         'Favourite',
         where: 'name = ?',
         whereArgs: [name]).then((value) {
-      // Utils.showSnackBar('Deleted', 'Task is removed successfully', const Icon(Icons.done,color: Colors.white,size: 16,));
+      // Utils.showSnackBar('Deleted', 'Task is removed successfully',  Icon(Icons.done,color: Colors.white,size: 16,));
       return value;
     });
   }
