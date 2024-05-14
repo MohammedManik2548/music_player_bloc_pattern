@@ -5,6 +5,7 @@ import 'package:music/bloc/album_bloc/album_event.dart';
 import 'package:music/res/app_icons.dart';
 import 'package:music/view/common_widget/soft_button.dart';
 
+import '../../utils/addHelper.dart';
 import '../../view_model/services/splash_services.dart';
 
 class SplashScreen extends StatefulWidget {

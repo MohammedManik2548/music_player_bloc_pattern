@@ -12,6 +12,7 @@ import 'package:music/view/home/components/recently_played_list.dart';
 import 'package:music/view/home/components/songs.dart';
 import '../../bloc/home_bloc/home_bloc.dart';
 import '../../bloc/home_bloc/home_state.dart';
+import '../../utils/addHelper.dart';
 import 'components/home_bottom_player.dart';
 import 'components/home_foler_list.dart';
 
@@ -25,7 +26,6 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
 
   BannerAd? _bannerAd;
-  InterstitialAd? _interstitialAd;
   bool _isLoaded = false;
   int num_of_attemp_load = 0;
   ///Testing
@@ -39,9 +39,8 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     loadAd();
-    // inLoadAd();
-    // showInst();
-    // BlocProvider.of<AdBloc>(context).state.ad??'';
+    AdHelper.initInterstitialAd();
+    AdHelper.customInterstitial(const Duration(seconds: 5));
     super.initState();
     context.read<HomeBloc>()
       ..add(GetFavSongEvent())
@@ -78,51 +77,6 @@ class _HomeViewState extends State<HomeView> {
         },
       ),
     )..load();
-  }
-  void inLoadAd() {
-    InterstitialAd.load(
-        adUnitId: iAdUnit,
-        request: const AdRequest(),
-        adLoadCallback: InterstitialAdLoadCallback(
-          // Called when an ad is successfully received.
-          onAdLoaded: (ad) {
-            debugPrint('$ad loaded.');
-            // Keep a reference to the ad so you can show it later.
-            _interstitialAd = ad;
-            num_of_attemp_load=0;
-          },
-          // Called when an ad request failed.
-          onAdFailedToLoad: (LoadAdError error) {
-            debugPrint('InterstitialAd failed to load: $error');
-            _interstitialAd = null;
-            num_of_attemp_load+0;
-            if(num_of_attemp_load<=2){
-              inLoadAd();
-            }
-          },
-        ));
-  }
-  void showInst(){
-    if(_interstitialAd == null){
-      return;
-    }
-    _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
-      onAdShowedFullScreenContent: (InterstitialAd ad){
-        print('ad adOnShowFullScreen');
-      },
-      onAdDismissedFullScreenContent: (InterstitialAd ad){
-        ad.dispose();
-        print('add Dispose');
-    },
-      onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError adError){
-        print('add Failed $ad');
-        ad.dispose();
-        inLoadAd();
-      },
-    );
-    _interstitialAd!.show();
-
-    _interstitialAd = null;
   }
 
   @override
