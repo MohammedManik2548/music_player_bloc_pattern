@@ -1,3 +1,4 @@
+import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -8,6 +9,7 @@ import 'package:music/bloc/home_bloc/home_bloc.dart';
 import 'package:music/bloc/player_bloc/player_bloc.dart';
 import 'package:music/db_helper/db_helper.dart';
 import 'package:music/res/app_colors.dart';
+import 'package:music/utils/audioHandler.dart';
 import 'package:music/view/splash/splash.dart';
 
 import 'bloc/ad_bloc/ad_bloc.dart';
