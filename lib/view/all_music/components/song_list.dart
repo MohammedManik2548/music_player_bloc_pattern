@@ -10,6 +10,7 @@ import 'package:music/view/home/components/song_widget.dart';
 import '../../../bloc/album_bloc/album_state.dart';
 import '../../../bloc/player_bloc/player_bloc.dart';
 import '../../../res/app_colors.dart';
+import '../../../utils/addHelper.dart';
 import '../../player/player.dart';
 
 class SongList extends StatelessWidget {

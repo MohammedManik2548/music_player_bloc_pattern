@@ -20,8 +20,7 @@ class AlbumBloc extends Bloc<AlbumEvent, AlbumState> {
     emit(state.copyWith(folders: await AudioFileQueries.getFolders()));
   }
 
-  Future<void> _folderTapEvent(FolderTapEvent event,
-      Emitter<AlbumState> emit) async {
+  Future<void> _folderTapEvent(FolderTapEvent event, Emitter<AlbumState> emit) async {
     add(LoadingStatusChange(status: Status.loading));
     try{
       pageController.animateToPage(1,

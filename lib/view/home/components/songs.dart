@@ -12,6 +12,7 @@ import 'package:music/view/player/player.dart';
 import '../../../bloc/album_bloc/album_bloc.dart';
 import '../../../bloc/album_bloc/album_event.dart';
 import '../../../res/app_colors.dart';
+import '../../../utils/addHelper.dart';
 
 class SongsList extends StatelessWidget {
   const SongsList({super.key});
@@ -71,6 +72,8 @@ class SongsList extends StatelessWidget {
                       : const EdgeInsets.only(top: 15),
                   child: GestureDetector(
                     onTap: () {
+                      AdHelper.initInterstitialAd();
+                      AdHelper.customInterstitial(const Duration(seconds: 5));
                       context
                           .read<PlayerBloc>()
                           .add(OnPlayEvent(file: state.songList[index]));

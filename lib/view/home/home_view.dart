@@ -27,20 +27,19 @@ class _HomeViewState extends State<HomeView> {
 
   BannerAd? _bannerAd;
   bool _isLoaded = false;
-  int num_of_attemp_load = 0;
+
   ///Testing
 
 
   final adUnitId = Platform.isAndroid
       ? 'ca-app-pub-3940256099942544/6300978111'
       : 'ca-app-pub-3940256099942544/2934735716';
-  final iAdUnit = 'ca-app-pub-3940256099942544/1033173712';
 
   @override
   void initState() {
-    loadAd();
     AdHelper.initInterstitialAd();
     AdHelper.customInterstitial(const Duration(seconds: 5));
+    loadAd();
     super.initState();
     context.read<HomeBloc>()
       ..add(GetFavSongEvent())

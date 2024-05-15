@@ -21,7 +21,7 @@ class HomeBottomPlayer extends StatelessWidget {
       builder: (context, state) {
         // print(state.file==null? '' : state.file!.name.toString());
         return AnimatedPositioned(
-            bottom: state.status == SongStatus.playing ? 20 : -150,
+            bottom: state.status == SongStatus.playing ? 60 : -150,
             duration: const Duration(milliseconds: 300),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30),

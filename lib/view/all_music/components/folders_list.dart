@@ -6,6 +6,7 @@ import 'package:music/bloc/album_bloc/album_event.dart';
 import 'package:music/bloc/album_bloc/album_state.dart';
 
 import '../../../res/app_colors.dart';
+import '../../../utils/addHelper.dart';
 class FolderList extends StatelessWidget {
   const FolderList({super.key});
   @override
@@ -26,8 +27,12 @@ class FolderList extends StatelessWidget {
             desktopRatio: 1.1,
             builder: (context, index) {
           return  GestureDetector(
-            onTap: () => context.read<AlbumBloc>().add(FolderTapEvent(
-                path: state.folders[index]['path'].toString(), folderName: state.folders[index]['name'].toString())),
+            onTap: (){
+              AdHelper.initInterstitialAd();
+              AdHelper.customInterstitial(const Duration(seconds: 5));
+              context.read<AlbumBloc>().add(FolderTapEvent(path: state.folders[index]['path'].toString(), folderName: state.folders[index]['name'].toString()));
+            },
+            // onTap: () => context.read<AlbumBloc>().add(FolderTapEvent(path: state.folders[index]['path'].toString(), folderName: state.folders[index]['name'].toString())),
             child: Container(
               height: 90,
               width: 90,
