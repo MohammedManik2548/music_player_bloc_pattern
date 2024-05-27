@@ -18,7 +18,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    SplashServices.isFirstTime(context: context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      SplashServices.isFirstTime(context: context);
+    });
+    // SplashServices.isFirstTime(context: context);
     // context.read<HomeBloc>().add(GetFilesEvent());
   }
   @override

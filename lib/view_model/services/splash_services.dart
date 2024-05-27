@@ -10,7 +10,7 @@ import '../../view/onBoarding/onBoarding.dart';
 class SplashServices{
   static isFirstTime({required BuildContext context})async{
     bool permission=await Utils.requestPermission();
-    Timer(Duration(milliseconds: 1500), () async {
+    Timer(const Duration(milliseconds: 1500), () async {
       if(permission){
         Utils.go(context: context, screen: const HomeView(),replace: true);
       }else{

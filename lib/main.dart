@@ -10,11 +10,13 @@ import 'package:music/bloc/player_bloc/player_bloc.dart';
 import 'package:music/db_helper/db_helper.dart';
 import 'package:music/res/app_colors.dart';
 import 'package:music/utils/audioHandler.dart';
+import 'package:music/utils/utils.dart';
 import 'package:music/view/splash/splash.dart';
 
 import 'bloc/ad_bloc/ad_bloc.dart';
-void main() {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await Utils.requestPermission();
   MobileAds.instance.initialize();
   runApp(const MyApp());
 }

@@ -75,3 +75,6 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icons/music_player.png"
+
+  module:
+    androidX: true # Add this line.

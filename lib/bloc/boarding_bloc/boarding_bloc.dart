@@ -22,10 +22,13 @@ class BoardingBLoc extends Bloc<BoardingEvent,BoardingState>{
   Future<void> _onSkipTapEvent(OnSkipTapEvent event, Emitter<BoardingState> emit)async{
    var pref= await SharedPreferences.getInstance();
    final isPermissionGranted = await Utils.requestPermission();
+   print('check_permission: $isPermissionGranted');
    if(isPermissionGranted){
+     print('check_permission_if: $isPermissionGranted');
      Utils.go(context: event.context!, screen: const HomeView());
      pref.setBool('OPENED', true);
    }else{
+     print('check_permission_else: $isPermissionGranted');
      Utils.requestPermission();
    }
   }
